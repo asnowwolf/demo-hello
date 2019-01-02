@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { ClassLevelPipe } from './pipes/class-level.pipe';
 import { AirListComponent } from './air-list/air-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { MyDbService } from './mocks/my-db.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +17,6 @@ import { MyDbService } from './mocks/my-db.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(MyDbService),
   ],
   providers: [],
   bootstrap: [AppComponent],
