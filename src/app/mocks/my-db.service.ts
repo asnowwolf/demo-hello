@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
-import { ClassLevelEnum } from '../models/class-level.enum';
-import { AirInfo } from '../models/air-info.model';
+import { ClassLevelEnum } from '../air/models/class-level.enum';
+import { AirInfo } from '../air/models/air-info.model';
 
 @Injectable({
   providedIn: 'root',

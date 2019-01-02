@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AirInfo } from '../models/air-info.model';
+import { AirListApi } from '../apis/air-list-api.service';
 
 @Component({
   selector: 'app-air-list',
@@ -8,13 +9,15 @@ import { AirInfo } from '../models/air-info.model';
 })
 export class AirListComponent implements OnInit {
 
-  constructor() {
+  constructor(private api: AirListApi) {
   }
 
-  @Input()
   airList: AirInfo[];
 
   ngOnInit() {
+    this.api.query().subscribe(items => {
+      this.airList = items;
+    });
   }
 
   remove(air: AirInfo): void {
