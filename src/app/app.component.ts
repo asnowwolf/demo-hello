@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { ClassLevelEnum } from './pipes/class-level.enum';
-
-class AirInfo {
-  id: number;
-  name: string;
-  num: string;
-  level: ClassLevelEnum;
-}
+import { ClassLevelEnum } from './models/class-level.enum';
+import { AirInfo } from './models/air-info.model';
 
 @Component({
   selector: 'app-root',

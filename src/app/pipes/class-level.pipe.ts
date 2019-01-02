@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ClassLevelEnum } from './class-level.enum';
+import { ClassLevelEnum } from '../models/class-level.enum';
 
 @Pipe({
   name: 'classLevel',
