@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ClassLevelEnum } from './models/class-level.enum';
 import { AirInfo } from './models/air-info.model';
+import { ClassLevelEnum } from './models/class-level.enum';
 
 @Component({
   selector: 'app-root',
@@ -22,9 +22,4 @@ export class AppComponent {
       level: ClassLevelEnum.A,
     },
   ];
-
-  remove(air: AirInfo): void {
-    const index = this.airList.indexOf(air);
-    this.airList = this.airList.slice(index, index + 1);
-  }
 }
