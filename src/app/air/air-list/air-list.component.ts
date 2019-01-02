@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AirInfo } from '../models/air-info.model';
 import { AirListApi } from '../apis/air-list-api.service';
+import { map, tap } from 'rxjs/operators';
+import { ClassLevelEnum } from '../models/class-level.enum';
 
 @Component({
   selector: 'app-air-list',
@@ -15,13 +17,25 @@ export class AirListComponent implements OnInit {
   airList: AirInfo[];
 
   ngOnInit() {
-    this.api.query().subscribe(items => {
+    this.reload();
+  }
+
+  private reload() {
+    this.api.query().pipe(
+      map(items => [...items, {
+        id: 3,
+        name: 'c',
+        num: 'HU10003',
+        level: ClassLevelEnum.C,
+      }]),
+    ).subscribe(items => {
       this.airList = items;
     });
   }
 
   remove(air: AirInfo): void {
-    const index = this.airList.indexOf(air);
-    this.airList = this.airList.slice(index, index + 1);
+    this.api.remove(air.id).pipe(
+      tap(() => this.reload()),
+    ).subscribe();
   }
 }

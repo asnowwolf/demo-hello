@@ -14,4 +14,8 @@ export class AirListApi {
   query(): Observable<AirInfo[]> {
     return this.http.get<AirInfo[]>('/api/airList');
   }
+
+  remove(id: number): Observable<void> {
+    return this.http.delete<void>(`/api/airList/${id}`);
+  }
 }
